@@ -6,6 +6,10 @@ module Ameba::GithubAction
     def to_json(json)
       {title: title, summary: summary, annotations: annotations}.to_json(json)
     end
+
+    def success?
+      summary.total_issues == 0
+    end
   end
 
   enum AnnotationLevel

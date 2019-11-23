@@ -2,6 +2,7 @@ require "http/client"
 
 module Ameba::GithubAction
   NAME = "Ameba"
+  GITHUB_API_URL = "api.github.com"
 
   class Runner
     @owner : String
@@ -21,10 +22,10 @@ module Ameba::GithubAction
 
     def run
       check_id = create_check
-      results = run_ameba
-      update_check(check_id, results)
+      result = run_ameba
+      update_check(check_id, result)
     rescue
-      update_check(check_id, "failure")
+      update_check(check_id, nil)
     end
 
     def create_check
@@ -33,12 +34,12 @@ module Ameba::GithubAction
         "head_sha"   => @sha,
         "status"     => "in_progress",
         "started_at" => Time.local,
-      }
+      }.to_json
 
       response = HTTP::Client.post(
-        url: "api.github.com/repos/#{@owner}/#{@repo}/check-runs",
+        url: "#{GITHUB_API_URL}/repos/#{@owner}/#{@repo}/check-runs",
         headers: headers,
-        body: body.to_json,
+        body: body,
         tls: OpenSSL::SSL::Context::Client.new
       )
       raise response.status_message.to_s unless response.success?
@@ -53,8 +54,25 @@ module Ameba::GithubAction
       end.formatter.as(Formatter).result
     end
 
-    def update_check(id, results)
-      #
+    def update_check(id, result)
+      conclusion = result.try(&.success?) ? "success" : "failure"
+
+      body = {
+        "name" => NAME,
+        "head_sha" => @sha,
+        "status" => "completed",
+        "completed_at" => Time.local,
+        "conclusion" => conclusion,
+        "output" => result
+      }.to_json
+
+      response = HTTP::Client.patch(
+        url: "#{GITHUB_API_URL}/repos/#{@owner}/#{@repo}/check-runs/#{id}",
+        headers: headers,
+        body: body,
+        tls: OpenSSL::SSL::Context::Client.new
+      )
+      raise response.status_message.to_s unless response.success?
     end
 
     private def headers
