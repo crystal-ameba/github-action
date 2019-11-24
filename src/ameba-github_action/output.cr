@@ -44,7 +44,7 @@ module Ameba::GithubAction
     property total_issues = 0
 
     def to_json(json)
-      return json.string <<-SUMMARY
+      json.string <<-SUMMARY
         Total files checked: *#{total_sources}*
         Issues found: *#{total_issues}*
 

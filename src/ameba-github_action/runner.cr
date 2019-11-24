@@ -9,7 +9,6 @@ module Ameba::GithubAction
       @sha = ENV["GITHUB_SHA"]
       @repo = ENV["GITHUB_REPOSITORY"]
       @github_client = GithubClient.new ENV["GITHUB_TOKEN"]
-      is_initialized = false
     end
 
     def run
@@ -18,8 +17,8 @@ module Ameba::GithubAction
         result = run_ameba
         update_check(check_id, result)
       rescue e
-        raise e
         update_check(check_id, nil)
+        raise e
       end
     end
 
@@ -32,7 +31,7 @@ module Ameba::GithubAction
       }.to_json
 
       response = @github_client.post("/repos/#{@repo}/check-runs", body)
-      return response["id"].as_i
+      response["id"].as_i
     end
 
     def run_ameba
