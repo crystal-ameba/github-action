@@ -48,6 +48,11 @@ Run it:
 docker run -it crystal-ameba/github-action
 ```
 
+## Bump versions
+
+* Crystal version should be updated in `Dockerfile` file (version of the image).
+* Ameba version should be updated in `shard.yml`/`shard.lock` files.
+
 ## Contributing
 
 1. Fork it (<https://github.com/crystal-ameba/github-action/fork>)
