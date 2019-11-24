@@ -2,7 +2,7 @@ require "http/client"
 
 module Ameba::GithubAction
   NAME = "Ameba"
-  GITHUB_API_URL = "api.github.com"
+  GITHUB_API_URL = "https://api.github.com"
 
   class Runner
     @owner : String
@@ -24,7 +24,8 @@ module Ameba::GithubAction
       check_id = create_check
       result = run_ameba
       update_check(check_id, result)
-    rescue
+    rescue e
+      puts e
       update_check(check_id, nil)
     end
 
@@ -39,8 +40,7 @@ module Ameba::GithubAction
       response = HTTP::Client.post(
         url: "#{GITHUB_API_URL}/repos/#{@owner}/#{@repo}/check-runs",
         headers: headers,
-        body: body,
-        tls: OpenSSL::SSL::Context::Client.new
+        body: body
       )
       raise response.status_message.to_s unless response.success?
       JSON.parse(response.body)["id"].as_s
@@ -69,8 +69,7 @@ module Ameba::GithubAction
       response = HTTP::Client.patch(
         url: "#{GITHUB_API_URL}/repos/#{@owner}/#{@repo}/check-runs/#{id}",
         headers: headers,
-        body: body,
-        tls: OpenSSL::SSL::Context::Client.new
+        body: body
       )
       raise response.status_message.to_s unless response.success?
     end
