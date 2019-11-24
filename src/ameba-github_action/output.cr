@@ -22,21 +22,17 @@ module Ameba::GithubAction
     path : String,
     title : String,
     start_line : Int32,
-    start_column : Int32,
-    end_line : Int32?,
-    end_column : Int32?,
+    end_line : Int32,
     annotation_level : AnnotationLevel,
     message : String do
     def to_json(json)
       {
-        path: path,
-        title: title,
-        start_line: start_line,
-        end_line: end_line,
-        start_column: start_column,
-        end_column: end_column,
+        path:             path,
+        title:            title,
+        start_line:       start_line,
+        end_line:         end_line,
         annotation_level: annotation_level.to_s.downcase,
-        message: message
+        message:          message,
       }.to_json(json)
     end
   end

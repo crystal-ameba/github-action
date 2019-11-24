@@ -1,4 +1,4 @@
-name: Ameba
+name: Linting
 
 on: [push]
 
@@ -11,6 +11,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: Crystal Ameba Linter
       id: crystal-ameba
-      uses: actions/ameba-action@v1
+      uses: crystal-ameba/ameba-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
