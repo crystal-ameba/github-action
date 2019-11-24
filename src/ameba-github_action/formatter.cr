@@ -4,6 +4,10 @@ module Ameba::GithubAction
   class Formatter < Ameba::Formatter::BaseFormatter
     getter result = Output.new
 
+    def initialize(@base_dir = "./")
+      super(STDOUT)
+    end
+
     def source_finished(source : Source)
       result.summary.total_sources += 1
 
@@ -13,7 +17,7 @@ module Ameba::GithubAction
         result.summary.total_issues += 1
 
         result.annotations << Annotation.new(
-          path: source.path,
+          path: convert_path(source.path),
           title: issue.rule.name,
           start_line: issue.location.not_nil!.line_number,
           start_column: issue.location.not_nil!.column_number,
@@ -33,6 +37,10 @@ module Ameba::GithubAction
       else
         AnnotationLevel::Notice
       end
+    end
+
+    private def convert_path(path)
+      path.gsub(/^#{@base_dir}/, "").gsub(/^\//, "")
     end
   end
 end

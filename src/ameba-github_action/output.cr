@@ -29,14 +29,14 @@ module Ameba::GithubAction
     message : String do
     def to_json(json)
       {
-        path: path,
-        title: title,
-        start_line: start_line,
-        end_line: end_line,
-        start_column: start_column,
-        end_column: end_column,
+        path:             path,
+        title:            title,
+        start_line:       start_line,
+        end_line:         end_line,
+        start_column:     start_column,
+        end_column:       end_column,
         annotation_level: annotation_level.to_s.downcase,
-        message: message
+        message:          message,
       }.to_json(json)
     end
   end
@@ -48,7 +48,7 @@ module Ameba::GithubAction
     property total_issues = 0
 
     def to_json(json)
-      json.string <<-SUMMARY
+      return json.string <<-SUMMARY
         Total files checked: *#{total_sources}*
         Issues found: *#{total_issues}*
 

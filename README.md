@@ -4,6 +4,17 @@ GitHub Action for Ameba.
 
 ## Usage
 
+Add the following to your GitHub action workflow to use Crystal Ameba Linter:
+
+``` yaml
+- name: Crystal Ameba Linter
+  uses: crystal-ameba/ameba-action@v1
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+## Development
+
 Build the docker image:
 
 ```sh
