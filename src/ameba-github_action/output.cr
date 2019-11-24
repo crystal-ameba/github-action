@@ -49,7 +49,7 @@ module Ameba::GithubAction
         Issues found: *#{total_issues}*
 
         Ameba Version: *#{ameba_version}*
-        Cystal Version: *#{crystal_version}*
+        Crystal Version: *#{crystal_version}*
       SUMMARY
     end
   end

@@ -1,2 +1,2 @@
 require "spec"
-require "../src/ameba-github_action"
+require "../src/ameba-github_action/*"

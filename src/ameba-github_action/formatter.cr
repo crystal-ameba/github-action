@@ -1,3 +1,4 @@
+require "ameba"
 require "./output"
 
 module Ameba::GithubAction
