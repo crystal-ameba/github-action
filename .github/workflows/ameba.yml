@@ -1,0 +1,16 @@
+name: Ameba
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Crystal Ameba Linter
+      id: crystal-ameba
+      uses: actions/ameba-action@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
