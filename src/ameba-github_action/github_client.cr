@@ -28,7 +28,7 @@ module Ameba::GithubAction
         "Content-Type"  => "application/json",
         "Accept"        => "application/vnd.github.antiope-preview+json",
         "Authorization" => "Bearer #{@github_token}",
-        "User-Agent"    => "ameba-action",
+        "User-Agent"    => "crystal-ameba-github-action",
       }
     end
   end

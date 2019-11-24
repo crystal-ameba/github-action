@@ -1,6 +1,6 @@
-# ameba-github_action
+# Crystal Ameba GitHub Action
 
-GitHub Action for Ameba.
+GitHub Action that lints Crystal shards with [Ameba](https://github.com/crystal-ameba/ameba) linter
 
 ## Usage
 
@@ -8,7 +8,7 @@ Add the following to your GitHub action workflow to use Crystal Ameba Linter:
 
 ``` yaml
 - name: Crystal Ameba Linter
-  uses: crystal-ameba/ameba-action@v0.1.0
+  uses: crystal-ameba/github-action@v0.1.0
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -29,7 +29,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Crystal Ameba Linter
       id: crystal-ameba
-      uses: crystal-ameba/ameba-action@v0.1.0
+      uses: crystal-ameba/github-action@v0.1.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -39,18 +39,18 @@ jobs:
 Build the docker image:
 
 ```sh
-docker build . -t ameba/github-action
+docker build . -t crystal-ameba/github-action
 ```
 
 Run it:
 
 ```sh
-docker run -it ameba/github-action
+docker run -it crystal-ameba/github-action
 ```
 
 ## Contributing
 
-1. Fork it (<https://github.com/your-github-user/ameba-github_action/fork>)
+1. Fork it (<https://github.com/crystal-ameba/github-action/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -58,4 +58,4 @@ docker run -it ameba/github-action
 
 ## Contributors
 
-- [Vitalii Elenhaupt](https://github.com/your-github-user) - creator and maintainer
+- [Vitalii Elenhaupt](https://github.com/veelenga) - creator and maintainer
