@@ -53,8 +53,6 @@ module Ameba::GithubAction
         "output"       => result,
       }.to_json
 
-      puts body
-
       @github_client.patch("/repos/#{@repo}/check-runs/#{id}", body)
     end
   end
