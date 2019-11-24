@@ -18,8 +18,8 @@ module Ameba::GithubAction
         result = run_ameba
         update_check(check_id, result)
       rescue e
-        update_check(check_id, nil)
         raise e
+        update_check(check_id, nil)
       end
     end
 
@@ -32,7 +32,7 @@ module Ameba::GithubAction
       }.to_json
 
       response = @github_client.post("/repos/#{@repo}/check-runs", body)
-      response["id"].as_i
+      return response["id"].as_i
     end
 
     def run_ameba
