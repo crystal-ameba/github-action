@@ -8,9 +8,30 @@ Add the following to your GitHub action workflow to use Crystal Ameba Linter:
 
 ``` yaml
 - name: Crystal Ameba Linter
-  uses: crystal-ameba/ameba-action@v1
+  uses: crystal-ameba/ameba-action@v0.1.0
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+### Example Workflow
+
+``` yaml
+name: Linting
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Crystal Ameba Linter
+      id: crystal-ameba
+      uses: crystal-ameba/ameba-action@v0.1.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ## Development

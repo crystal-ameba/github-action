@@ -11,6 +11,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: Crystal Ameba Linter
       id: crystal-ameba
-      uses: crystal-ameba/ameba-action@feat/instructions
+      uses: crystal-ameba/ameba-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
