@@ -16,7 +16,7 @@ Add the following to your GitHub action workflow to use Crystal Ameba Linter:
 ### Example Workflow
 
 ``` yaml
-name: Linting
+name: Crystal CI
 
 on: [push]
 
@@ -25,6 +25,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    container:
+      image: crystallang/crystal
+
     steps:
     - uses: actions/checkout@v1
     - name: Crystal Ameba Linter
@@ -32,6 +35,10 @@ jobs:
       uses: crystal-ameba/github-action@v0.1.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Install dependencies
+      run: shards install
+    - name: Run tests
+      run: crystal spec
 ```
 
 ## Development
