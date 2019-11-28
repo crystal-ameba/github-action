@@ -4,11 +4,13 @@ module Ameba::GithubAction
   NAME = "Ameba"
 
   class Runner
-    def initialize
-      @workspace = ENV["GITHUB_WORKSPACE"]
-      @sha = ENV["GITHUB_SHA"]
-      @repo = ENV["GITHUB_REPOSITORY"]
-      @github_client = GithubClient.new ENV["GITHUB_TOKEN"]
+    def initialize(
+      @workspace = ENV["GITHUB_WORKSPACE"],
+      @sha = ENV["GITHUB_SHA"],
+      @repo = ENV["GITHUB_REPOSITORY"],
+      github_token = ENV["GITHUB_TOKEN"]
+    )
+      @github_client = GithubClient.new(github_token)
     end
 
     def run
@@ -34,12 +36,17 @@ module Ameba::GithubAction
       response["id"].as_i
     end
 
-    def run_ameba
-      Ameba::Config.load.tap do |config|
+    def ameba_config
+      Ameba::Config.load(path: "#{@workspace}/.ameba.yml").tap do |config|
         config.formatter = Formatter.new(@workspace)
         config.globs = ["#{@workspace}/**/*.cr"]
-        Ameba.run config
-      end.formatter.as(Formatter).result
+      end
+    end
+
+    def run_ameba
+      ameba_config
+        .tap { |config| Ameba.run(config) }
+        .formatter.as(Formatter).result
     end
 
     def update_check(id, result)
