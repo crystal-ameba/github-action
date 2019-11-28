@@ -5,7 +5,7 @@ module Ameba::GithubAction
     describe "#to_json" do
       it "can be properly serialized" do
         subject = Output.new
-        result = JSON.parse({ subject: subject }.to_json)["subject"].as_h
+        result = JSON.parse({subject: subject}.to_json)["subject"].as_h
         result["title"].as_s.should_not be_nil
         result["summary"].should_not be_nil
         result["annotations"].as_a.should be_empty
@@ -36,7 +36,7 @@ module Ameba::GithubAction
           annotation_level: AnnotationLevel::Notice,
           message: "message"
         )
-        result = JSON.parse({ subject: subject }.to_json)["subject"].as_h
+        result = JSON.parse({subject: subject}.to_json)["subject"].as_h
         result["path"].should eq subject.path
         result["title"].should eq subject.title
         result["start_line"].should eq subject.start_line
@@ -89,7 +89,7 @@ module Ameba::GithubAction
         subject = Summary.new
         subject.total_sources = 10
         subject.total_issues = 11
-        result = JSON.parse({ subject: subject }.to_json)["subject"].as_s
+        result = JSON.parse({subject: subject}.to_json)["subject"].as_s
         result.should match /Total files checked: \*10\*/
         result.should match /Issues found: \*11\*/
         result.should match /Ameba Version: \*#{Ameba::VERSION}\*/
