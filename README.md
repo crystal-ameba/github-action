@@ -2,6 +2,8 @@
 
 GitHub Action that lints Crystal shards with [Ameba](https://github.com/crystal-ameba/ameba) linter
 
+![](https://github.com/crystal-ameba/github-action/raw/master/assets/sample.png)
+
 ## Usage
 
 Add the following to your GitHub action workflow to use Crystal Ameba Linter:
