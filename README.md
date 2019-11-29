@@ -10,7 +10,7 @@ Add the following to your GitHub action workflow to use Crystal Ameba Linter:
 
 ``` yaml
 - name: Crystal Ameba Linter
-  uses: crystal-ameba/github-action@v0.1.1
+  uses: crystal-ameba/github-action@v0.2.0
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -34,7 +34,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Crystal Ameba Linter
       id: crystal-ameba
-      uses: crystal-ameba/github-action@v0.1.1
+      uses: crystal-ameba/github-action@v0.2.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Install dependencies
@@ -42,6 +42,13 @@ jobs:
     - name: Run tests
       run: crystal spec
 ```
+
+## Compatibility Versions
+
+|  Ameba version | GitHub Action version |
+|  -             | -                     |
+| v0.11.0        | v0.2.0                |
+| v0.10.1        | v0.1.1                |
 
 ## Development
 
@@ -57,7 +64,7 @@ Run it:
 docker run -it crystal-ameba/github-action
 ```
 
-## Bump versions
+### Bump versions
 
 * Crystal version should be updated in `Dockerfile` file (version of the image).
 * Ameba version should be updated in `shard.yml`/`shard.lock` files.
