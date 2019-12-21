@@ -3,6 +3,8 @@ require "./output"
 
 module Ameba::GithubAction
   class Formatter < Ameba::Formatter::BaseFormatter
+    include Ameba::Formatter::Util
+
     getter result = Output.new
 
     def initialize(@base_dir = "./")
@@ -21,6 +23,7 @@ module Ameba::GithubAction
         next unless start_line
 
         result.summary.total_issues += 1
+        raw_details = raw_details(source, issue.location)
 
         result.annotations << Annotation.new(
           path: convert_path(source.path),
@@ -29,7 +32,7 @@ module Ameba::GithubAction
           end_line: end_line || start_line,
           annotation_level: convert_severity(issue.rule.severity),
           message: issue.message,
-          raw_details: issue.rule.class.parsed_doc
+          raw_details: raw_details
         )
       end
     end
@@ -46,6 +49,13 @@ module Ameba::GithubAction
 
     private def convert_path(path)
       path.gsub(/^#{@base_dir}/, "").gsub(/^\//, "")
+    end
+
+    private def raw_details(source, location)
+      Colorize.enabled = false
+      location ? affected_code(source, location) : nil
+    ensure
+      Colorize.enabled = true
     end
   end
 end
