@@ -43,7 +43,19 @@ module Ameba::GithubAction
         formatter.result.annotations.size.should eq 1
       end
 
-      context "annotation leve" do
+      it "ignored disabled issues" do
+        source = Ameba::Source.new ""
+        location = Crystal::Location.new("source", 1, 1)
+        end_location = Crystal::Location.new("source", 1, 2)
+        source.add_issue(error_rule, location, end_location, "error", :disabled)
+
+        formatter = Formatter.new
+        formatter.source_finished(source)
+        formatter.result.summary.total_sources.should eq 1
+        formatter.result.summary.total_issues.should eq 0
+      end
+
+      context "annotation level" do
         it "converts error rule to failure" do
           annotations(error_rule)
             .first.annotation_level.should eq AnnotationLevel::Failure

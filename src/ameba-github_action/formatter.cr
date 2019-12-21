@@ -13,6 +13,8 @@ module Ameba::GithubAction
       result.summary.total_sources += 1
 
       source.issues.each do |issue|
+        next if issue.disabled?
+
         start_line = issue.location.try &.line_number
         end_line = issue.end_location.try &.line_number
 
