@@ -28,7 +28,8 @@ module Ameba::GithubAction
           start_line: start_line,
           end_line: end_line || start_line,
           annotation_level: convert_severity(issue.rule.severity),
-          message: issue.message
+          message: issue.message,
+          raw_details: issue.rule.class.parsed_doc
         )
       end
     end

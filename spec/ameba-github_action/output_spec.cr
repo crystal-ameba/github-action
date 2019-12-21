@@ -34,7 +34,8 @@ module Ameba::GithubAction
           start_line: 1,
           end_line: 3,
           annotation_level: AnnotationLevel::Notice,
-          message: "message"
+          message: "message",
+          raw_details: "details"
         )
         result = JSON.parse({subject: subject}.to_json)["subject"].as_h
         result["path"].should eq subject.path
@@ -43,6 +44,7 @@ module Ameba::GithubAction
         result["end_line"].should eq subject.end_line
         result["annotation_level"].should eq "notice"
         result["message"].should eq subject.message
+        result["raw_details"].should eq subject.raw_details
       end
     end
   end
