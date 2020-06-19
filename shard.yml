@@ -1,5 +1,5 @@
 name: ameba-github_action
-version: 0.2.3
+version: 0.2.4
 
 authors:
   - Vitalii Elenhaupt <velenhaupt@gmail.com>
@@ -13,6 +13,6 @@ crystal: 0.31.1
 dependencies:
   ameba:
     github: crystal-ameba/ameba
-    version: ~> 0.12.0
+    version: ~> 0.13.0
 
 license: MIT
