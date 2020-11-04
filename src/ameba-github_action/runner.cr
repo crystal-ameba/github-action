@@ -39,7 +39,7 @@ module Ameba::GithubAction
     def ameba_config
       Ameba::Config.load(path: "#{@workspace}/.ameba.yml").tap do |config|
         config.formatter = Formatter.new(@workspace)
-        config.globs = ["#{@workspace}/**/*.cr"]
+        config.globs = ["#{@workspace}/**/*.cr", "!#{@workspace}/lib/**/*.cr"]
       end
     end
 
