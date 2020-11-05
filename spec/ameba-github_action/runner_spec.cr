@@ -14,7 +14,7 @@ module Ameba::GithubAction
         result = subject.ameba_config
         result.should_not be_nil
         result.formatter.should be_a Formatter
-        result.globs.should eq ["./workspace/**/*.cr"]
+        result.globs.should eq %w(./workspace/**/*.cr !./workspace/lib/**/*.cr)
       end
     end
   end
