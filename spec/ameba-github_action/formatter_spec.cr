@@ -41,6 +41,7 @@ module Ameba::GithubAction
         formatter.result.summary.total_sources.should eq 1
         formatter.result.summary.total_issues.should eq 1
         formatter.result.annotations.size.should eq 1
+        formatter.result.annotations.first.raw_details.should_not be_nil
       end
 
       it "ignored disabled issues" do

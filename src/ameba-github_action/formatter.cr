@@ -23,7 +23,7 @@ module Ameba::GithubAction
         next unless start_line
 
         result.summary.total_issues += 1
-        raw_details = raw_details(source, issue.location)
+        raw_details = raw_details(source, issue.location) || ""
 
         result.annotations << Annotation.new(
           path: convert_path(source.path),

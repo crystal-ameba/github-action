@@ -25,7 +25,7 @@ module Ameba::GithubAction
     end_line : Int32,
     annotation_level : AnnotationLevel,
     message : String,
-    raw_details : String? do
+    raw_details : String do
     def to_json(json)
       {
         path:             path,
@@ -34,7 +34,7 @@ module Ameba::GithubAction
         end_line:         end_line,
         annotation_level: annotation_level.to_s.downcase,
         message:          message,
-        raw_details:      raw_details
+        raw_details:      raw_details,
       }.to_json(json)
     end
   end
