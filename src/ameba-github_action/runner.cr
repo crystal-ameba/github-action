@@ -33,7 +33,7 @@ module Ameba::GithubAction
       }.to_json
 
       response = @github_client.post("/repos/#{@repo}/check-runs", body)
-      response["id"].as_i
+      response["id"]
     end
 
     def ameba_config
