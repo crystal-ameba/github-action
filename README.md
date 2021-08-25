@@ -60,20 +60,6 @@ jobs:
 | v0.11.0        | v0.2.1                |
 | v0.10.1        | v0.1.1                |
 
-## Development
-
-Build the docker image:
-
-```sh
-docker build . -t crystal-ameba/github-action
-```
-
-Run it:
-
-```sh
-docker run -it crystal-ameba/github-action
-```
-
 ### Bump versions
 
 * Crystal version should be updated in `Dockerfile` file (version of the image).
