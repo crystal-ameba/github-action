@@ -53,7 +53,7 @@ module Ameba::GithubAction
 
     private def raw_details(source, location)
       Colorize.enabled = false
-      location ? affected_code(source, location) : nil
+      location ? affected_code(source.code, location) : nil
     ensure
       Colorize.enabled = true
     end
