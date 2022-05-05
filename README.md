@@ -10,7 +10,7 @@ Add the following to your GitHub action workflow to use Crystal Ameba Linter:
 
 ``` yaml
 - name: Crystal Ameba Linter
-  uses: crystal-ameba/github-action@v0.2.12
+  uses: crystal-ameba/github-action@v0.3.0
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -34,7 +34,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Crystal Ameba Linter
       id: crystal-ameba
-      uses: crystal-ameba/github-action@v0.2.12
+      uses: crystal-ameba/github-action@v0.3.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Install dependencies
@@ -45,20 +45,21 @@ jobs:
 
 ## Compatibility Versions
 
-|  Ameba version | GitHub Action version |
-|  -             | -                     |
-| v0.14.3        | v0.2.12               |
-| v0.14.2        | v0.2.11               |
-| v0.14.1        | v0.2.9                |
-| v0.13.4        | v0.2.8                |
-| v0.13.3        | v0.2.7                |
-| v0.13.2        | v0.2.6                |
-| v0.13.1        | v0.2.5                |
-| v0.13.0        | v0.2.4                |
-| v0.12.1        | v0.2.3                |
-| v0.12.0        | v0.2.2                |
-| v0.11.0        | v0.2.1                |
-| v0.10.1        | v0.1.1                |
+| Ameba version | GitHub Action version |
+|---------------|-----------------------|
+| v1.0.0        | v0.3.0                |
+| v0.14.3       | v0.2.12               |
+| v0.14.2       | v0.2.11               |
+| v0.14.1       | v0.2.9                |
+| v0.13.4       | v0.2.8                |
+| v0.13.3       | v0.2.7                |
+| v0.13.2       | v0.2.6                |
+| v0.13.1       | v0.2.5                |
+| v0.13.0       | v0.2.4                |
+| v0.12.1       | v0.2.3                |
+| v0.12.0       | v0.2.2                |
+| v0.11.0       | v0.2.1                |
+| v0.10.1       | v0.1.1                |
 
 ### Bump versions
 
