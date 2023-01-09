@@ -8,6 +8,6 @@ LABEL com.github.actions.color="red"
 
 WORKDIR /app
 COPY . /app
-RUN shards build --production --release -Dpreview_mt
+RUN shards build --production -Dpreview_mt
 
 ENTRYPOINT ["/app/bin/ameba-github_action"]
