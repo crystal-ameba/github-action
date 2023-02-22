@@ -1,4 +1,4 @@
-FROM crystallang/crystal:1.6.0
+FROM crystallang/crystal:1.7.0
 
 LABEL maintainer="Vitalii Elenhaupt <velenhaupt@gmail.com>"
 LABEL com.github.actions.name="Ameba checks"
@@ -8,6 +8,6 @@ LABEL com.github.actions.color="red"
 
 WORKDIR /app
 COPY . /app
-RUN shards build --production -Dpreview_mt
+RUN shards install && shards build --production -Dpreview_mt
 
 ENTRYPOINT ["/app/bin/ameba-github_action"]
