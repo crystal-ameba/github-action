@@ -37,7 +37,10 @@ module Ameba::GithubAction
     end
 
     def ameba_config
-      Ameba::Config.load(path: "#{@workspace}/.ameba.yml").tap do |config|
+      filepath = "#{@workspace}/.ameba.yml"
+      filepath = nil unless File.exists?(filepath)
+
+      Ameba::Config.load(path: filepath).tap do |config|
         config.formatter = Formatter.new(@workspace)
         config.globs = ["#{@workspace}/**/*.cr", "!#{@workspace}/lib/**/*.cr"]
       end
