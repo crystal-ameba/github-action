@@ -10,7 +10,7 @@ Add the following to your GitHub action workflow to use Crystal Ameba Linter:
 
 ``` yaml
 - name: Crystal Ameba Linter
-  uses: crystal-ameba/github-action@v0.8.0
+  uses: crystal-ameba/github-action@v0.9.0
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -24,29 +24,30 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     container:
       image: crystallang/crystal
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Crystal Ameba Linter
-      id: crystal-ameba
-      uses: crystal-ameba/github-action@v0.8.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Install dependencies
-      run: shards install
-    - name: Run tests
-      run: crystal spec
+      - uses: actions/checkout@v4
+
+      - name: Crystal Ameba Linter
+        uses: crystal-ameba/github-action@v0.9.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install dependencies
+        run: shards install
+
+      - name: Run tests
+        run: crystal spec
 ```
 
 ## Compatibility Versions
 
 | Ameba version | GitHub Action version |
 |---------------|-----------------------|
+| ~> v1.6.0     | v0.9.0                |
 | ~> v1.5.0     | v0.8.0                |
 | ~> v1.4.0     | v0.7.1                |
 | v1.3.1        | v0.6.0                |

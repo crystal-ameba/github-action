@@ -1,4 +1,4 @@
-FROM crystallang/crystal:1.9.0
+FROM crystallang/crystal:1.10.0
 
 LABEL maintainer="Vitalii Elenhaupt <velenhaupt@gmail.com>"
 LABEL com.github.actions.name="Ameba checks"
