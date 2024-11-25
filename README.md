@@ -8,16 +8,16 @@ GitHub Action that lints Crystal shards with [Ameba](https://github.com/crystal-
 
 Add the following to your GitHub action workflow to use Crystal Ameba Linter:
 
-``` yaml
+```yaml
 - name: Crystal Ameba Linter
-  uses: crystal-ameba/github-action@v0.11.0
+  uses: crystal-ameba/github-action@v0.12.0
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ### Example Workflow
 
-``` yaml
+```yaml
 name: Crystal CI
 
 on: [push]
@@ -39,7 +39,7 @@ jobs:
         run: crystal spec
 
       - name: Run Ameba Linter
-        uses: crystal-ameba/github-action@v0.10.0
+        uses: crystal-ameba/github-action@v0.12.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -48,6 +48,7 @@ jobs:
 
 | Ameba version | GitHub Action version |
 |---------------|-----------------------|
+| ~> v1.6.4     | v0.12.0               |
 | ~> v1.6.3     | v0.11.0               |
 | ~> v1.6.2     | v0.10.0               |
 | ~> v1.6.1     | v0.9.0                |
