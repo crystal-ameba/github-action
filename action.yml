@@ -1,11 +1,12 @@
-name: 'Crystal Ameba Linter'
-description: 'A GitHub Action that lints Crystal shards with Ameba'
-author: 'Vitalii Elenhaupt <velenhaupt@gmail.com>'
+name: Crystal Ameba Linter
+description: A GitHub Action that lints Crystal shards with Ameba
+author: Vitalii Elenhaupt <velenhaupt@gmail.com>
+
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: docker
+  image: Dockerfile
 env:
   GITHUB_TOKEN: secrets.GITHUB_TOKEN
 branding:
-  icon: 'code'
-  color: 'red'
+  icon: code
+  color: red

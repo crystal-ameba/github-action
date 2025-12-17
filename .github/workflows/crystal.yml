@@ -17,8 +17,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
+
       - name: Install dependencies
         run: shards install
-  
+
       - name: Run tests
         run: crystal spec
