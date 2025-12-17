@@ -1,5 +1,5 @@
 name: ameba_github_action
-version: 0.12.0
+version: 1.0.0-dev
 
 authors:
   - Vitalii Elenhaupt <velenhaupt@gmail.com>
