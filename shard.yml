@@ -8,7 +8,7 @@ targets:
   ameba_github_action:
     main: src/ameba_github_action.cr
 
-crystal: ">= 1.9.0"
+crystal: ">= 1.17.0"
 
 dependencies:
   ameba:
