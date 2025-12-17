@@ -1,4 +1,4 @@
 require "ameba"
-require "./ameba-github_action/*"
+require "./ameba_github_action/*"
 
 Ameba::GithubAction::Runner.new.run

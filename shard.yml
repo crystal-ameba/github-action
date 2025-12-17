@@ -1,12 +1,12 @@
-name: ameba-github_action
+name: ameba_github_action
 version: 0.12.0
 
 authors:
   - Vitalii Elenhaupt <velenhaupt@gmail.com>
 
 targets:
-  ameba-github_action:
-    main: src/ameba-github_action.cr
+  ameba_github_action:
+    main: src/ameba_github_action.cr
 
 crystal: ">= 1.9.0"
 
