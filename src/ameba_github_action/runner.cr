@@ -6,8 +6,9 @@ module Ameba::GithubAction
       @root = Path[root]
     end
 
-    def run : Nil
-      Ameba.run(build_config)
+    def run : Bool
+      runner = Ameba.run(build_config)
+      runner.success?
     end
 
     private def build_config
