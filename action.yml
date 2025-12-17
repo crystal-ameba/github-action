@@ -5,8 +5,7 @@ author: Vitalii Elenhaupt <velenhaupt@gmail.com>
 runs:
   using: docker
   image: Dockerfile
-env:
-  GITHUB_TOKEN: secrets.GITHUB_TOKEN
+
 branding:
   icon: code
   color: red

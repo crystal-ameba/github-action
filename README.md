@@ -39,9 +39,7 @@ jobs:
         run: crystal spec
 
       - name: Run Ameba Linter
-        uses: crystal-ameba/github-action@v0.12.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: crystal-ameba/github-action@v1
 ```
 
 ## Compatibility Versions
