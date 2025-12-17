@@ -1,0 +1,14 @@
+name: Ameba
+
+on: [push]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v6
+
+      - name: Crystal Ameba Linter
+        uses: crystal-ameba/github-action@master
