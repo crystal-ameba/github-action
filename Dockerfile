@@ -6,10 +6,11 @@ LABEL com.github.actions.description="Lint your Crystal code in parallel to your
 LABEL com.github.actions.icon="code"
 LABEL com.github.actions.color="red"
 
+ENV GITHUB_WORKSPACE=""
+
 WORKDIR /app
 COPY . /app
 
-RUN shards install --skip-postinstall --skip-executables && \
-    shards build --release -Dpreview_mt
+RUN shards install
 
-ENTRYPOINT ["/app/bin/ameba_github_action"]
+ENTRYPOINT /app/bin/ameba --format github-actions "$GITHUB_WORKSPACE"

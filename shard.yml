@@ -4,10 +4,6 @@ version: 1.0.0-dev
 authors:
   - Vitalii Elenhaupt <velenhaupt@gmail.com>
 
-targets:
-  ameba_github_action:
-    main: src/ameba_github_action.cr
-
 crystal: ">= 1.17.0"
 
 dependencies:
