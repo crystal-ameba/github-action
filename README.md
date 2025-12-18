@@ -1,7 +1,7 @@
 # Crystal Ameba GitHub Action
 
-GitHub Action that lints Crystal shards with
-[Ameba](https://github.com/crystal-ameba/ameba) linter
+GitHub Action that lints Crystal code with
+[Ameba](https://github.com/crystal-ameba/ameba) linter.
 
 ![](https://github.com/crystal-ameba/github-action/raw/master/assets/sample.png)
 
@@ -10,32 +10,24 @@ GitHub Action that lints Crystal shards with
 To use Crystal Ameba Linter, add the following step to your GitHub action workflow:
 
 ```diff
-+ - name: Run Ameba Linter
-+   uses: crystal-ameba/github-action@v1
++      - name: Run Ameba Linter
++        uses: crystal-ameba/github-action@v1
 ```
 
 ### Example Workflow
 
 ```yaml
-name: Crystal CI
+name: Ameba
 
 on: [push]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
-    steps:
-      - name: Install Crystal
-        uses: crystal-lang/install-crystal@v1
 
+    steps:
       - name: Download source
         uses: actions/checkout@v6
-
-      - name: Install dependencies
-        run: shards install
-
-      - name: Run tests
-        run: crystal spec
 
       - name: Run Ameba Linter
         uses: crystal-ameba/github-action@v1
@@ -45,6 +37,7 @@ jobs:
 
 | Ameba version | GitHub Action version |
 |---------------|-----------------------|
+| ~> v1.7.0     | v1.0.0                |
 | ~> v1.6.4     | v0.12.0               |
 | ~> v1.6.3     | v0.11.0               |
 | ~> v1.6.2     | v0.10.0               |
@@ -61,7 +54,6 @@ jobs:
 ### Bump versions
 
 * Crystal version should be updated in `Dockerfile` file (version of the image).
-* Ameba version should be updated in `shard.yml`/`shard.lock` files.
 
 ## Contributing
 
