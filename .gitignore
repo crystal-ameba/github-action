@@ -1,5 +1,4 @@
 /bin/
 /lib/
 /.shards/
-*.dwraf
 /shard.lock

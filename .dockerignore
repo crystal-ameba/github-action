@@ -1,5 +1,5 @@
-.git
 bin
 lib
+.shards
 spec
 **/.DS_Store
