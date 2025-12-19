@@ -1,7 +1,7 @@
 # Crystal Ameba GitHub Action
 
-GitHub Action that lints Crystal code with
-[Ameba](https://github.com/crystal-ameba/ameba) linter.
+GitHub Action that lints Crystal code with [Ameba](https://github.com/crystal-ameba/ameba)
+linter.
 
 ![](https://github.com/crystal-ameba/github-action/raw/master/assets/sample.png)
 
@@ -19,7 +19,12 @@ To use Crystal Ameba Linter, add the following step to your GitHub action workfl
 ```yaml
 name: Ameba
 
-on: [push]
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   lint:
