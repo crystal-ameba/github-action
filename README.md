@@ -11,7 +11,7 @@ To use Crystal Ameba Linter, add the following step to your GitHub action workfl
 
 ```diff
 +      - name: Run Ameba Linter
-+        uses: crystal-ameba/github-action@v1
++        uses: crystal-ameba/github-action@master
 ```
 
 ### Example Workflow
@@ -35,14 +35,14 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Run Ameba Linter
-        uses: crystal-ameba/github-action@v1
+        uses: crystal-ameba/github-action@master
 ```
 
 ## Compatibility Versions
 
 | Ameba version | GitHub Action version |
 |---------------|-----------------------|
-| ~> v1.7.0     | v1.0.0                |
+| master        | master                |
 | ~> v1.6.4     | v0.12.0               |
 | ~> v1.6.3     | v0.11.0               |
 | ~> v1.6.2     | v0.10.0               |
