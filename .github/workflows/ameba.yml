@@ -1,0 +1,22 @@
+name: Ameba
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download source
+        uses: actions/checkout@v6
+
+      - name: Run Ameba Linter
+        uses: crystal-ameba/github-action@dfffca0280974a9e24956652d79a572fd5f9295d
+        with:
+          version: 1.6.0
+          fail-level: error
