@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Run Ameba Linter
-        uses: crystal-ameba/github-action@dfffca0280974a9e24956652d79a572fd5f9295d
+        uses: crystal-ameba/github-action@f755fa629dabf57cf63fb8787558e8dbc2877a2c
         with:
           version: 1.6.0
           fail-level: error
