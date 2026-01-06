@@ -2,6 +2,10 @@ name: Crystal Ameba Linter
 description: A GitHub Action that lints Crystal code with Ameba
 author: Vitalii Elenhaupt <velenhaupt@gmail.com>
 
+branding:
+  icon: code
+  color: red
+
 inputs:
   version:
     description: Version of Ameba rules to use
@@ -17,7 +21,3 @@ runs:
     - "${{ inputs.version }}"
     - "--fail-level"
     - "${{ inputs.fail-level }}"
-
-branding:
-  icon: code
-  color: red
