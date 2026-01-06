@@ -16,8 +16,4 @@ inputs:
 runs:
   using: docker
   image: Dockerfile
-  args:
-    - "--up-to-version"
-    - "${{ inputs.version }}"
-    - "--fail-level"
-    - "${{ inputs.fail-level }}"
+  entrypoint: /usr/bin/ameba --up-to-version "${{ inputs.version }}" --fail-level "${{ inputs.fail-level }}" --format github-actions "$GITHUB_WORKSPACE"
