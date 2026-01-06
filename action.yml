@@ -2,6 +2,10 @@ name: Crystal Ameba Linter
 description: A GitHub Action that lints Crystal code with Ameba
 author: Vitalii Elenhaupt <velenhaupt@gmail.com>
 
+branding:
+  icon: code
+  color: red
+
 inputs:
   config:
     description: Path to Ameba configuration file
@@ -23,7 +27,3 @@ runs:
     - "${{ inputs.version }}"
     - "--min-severity"
     - "${{ inputs.min-severity }}"
-
-branding:
-  icon: code
-  color: red
