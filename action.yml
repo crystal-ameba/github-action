@@ -2,9 +2,21 @@ name: Crystal Ameba Linter
 description: A GitHub Action that lints Crystal code with Ameba
 author: Vitalii Elenhaupt <velenhaupt@gmail.com>
 
+inputs:
+  version:
+    description: Version of Ameba rules to use
+  fail-level:
+    description: Severity of failure resulting in exit with an error code
+    default: convention
+
 runs:
   using: docker
   image: Dockerfile
+  args:
+    - "--up-to-version"
+    - "${{ inputs.version }}"
+    - "--fail-level"
+    - "${{ inputs.fail-level }}"
 
 branding:
   icon: code
