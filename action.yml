@@ -1,5 +1,5 @@
 name: Crystal Ameba Linter
-description: A GitHub Action that lints Crystal shards with Ameba
+description: A GitHub Action that lints Crystal code with Ameba
 author: Vitalii Elenhaupt <velenhaupt@gmail.com>
 
 runs:
