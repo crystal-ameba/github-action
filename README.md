@@ -5,6 +5,14 @@ linter.
 
 ![](https://github.com/crystal-ameba/github-action/raw/master/assets/sample.png)
 
+## Inputs
+
+| Input name     | Description                                  | Required? | Default value  |
+|----------------|----------------------------------------------|-----------|----------------|
+| `config`       | Path to the configuration file               | ✗         | —              |
+| `version`      | Version of Ameba ruleset to check against    | ✗         | —              |
+| `min-severity` | Minimum severity of issues to report         | ✗         | `convention`   |
+
 ## Usage
 
 To use Crystal Ameba Linter, add the following step to your GitHub action workflow:
@@ -36,6 +44,10 @@ jobs:
 
       - name: Run Ameba Linter
         uses: crystal-ameba/github-action@master
+        with:
+          config: .ameba.ci.yml
+          version: 1.6.0
+          min-severity: warning
 ```
 
 ## Compatibility Versions
