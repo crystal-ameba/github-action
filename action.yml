@@ -13,6 +13,10 @@ inputs:
     description: Version of Ameba rules to use
   min-severity:
     description: Minimum severity of issues to report
+  only:
+    description: Run only given rules (or groups)
+  except:
+    description: Disable the given rules (or groups)
 
 runs:
   using: docker
@@ -27,3 +31,7 @@ runs:
     - "${{ inputs.version }}"
     - "--min-severity"
     - "${{ inputs.min-severity }}"
+    - "--only"
+    - "${{ inputs.only }}"
+    - "--except"
+    - "${{ inputs.except }}"

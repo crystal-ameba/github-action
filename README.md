@@ -12,6 +12,8 @@ linter.
 | `config`       | Path to the configuration file               | ✗         | —              |
 | `version`      | Version of Ameba ruleset to check against    | ✗         | —              |
 | `min-severity` | Minimum severity of issues to report         | ✗         | `convention`   |
+| `only`         | Run only given rules (or groups)             | ✗         | —              |
+| `except`       | Disable the given rules (or groups)          | ✗         | —              |
 
 ## Usage
 
