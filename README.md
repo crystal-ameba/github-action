@@ -7,6 +7,9 @@ linter.
 
 ## Inputs
 
+> [!WARNING]
+> Available only for the `master` branch.
+
 | Input name     | Description                                  | Required? | Default value  |
 |----------------|----------------------------------------------|-----------|----------------|
 | `config`       | Path to the configuration file               | ✗         | —              |
@@ -46,10 +49,6 @@ jobs:
 
       - name: Run Ameba Linter
         uses: crystal-ameba/github-action@master
-        with:
-          config: .ameba.ci.yml
-          version: 1.6.0
-          min-severity: warning
 ```
 
 ## Compatibility Versions
