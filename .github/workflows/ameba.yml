@@ -1,0 +1,55 @@
+name: Ameba
+
+on:
+  workflow_dispatch:
+    inputs:
+      git-repository:
+        description: Git repository name with owner
+        type: string
+      git-ref:
+        description: Git reference (branch, tag, commit)
+        type: string
+      config:
+        description: Path to Ameba configuration file
+        type: string
+      version:
+        description: Version of Ameba rules to use
+        type: string
+      min-severity:
+        description: Minimum severity of issues to report
+        type: choice
+        options:
+          - convention
+          - warning
+          - error
+        default: convention
+      only:
+        description: Run only given rules (or groups)
+        type: string
+      except:
+        description: Disable the given rules (or groups)
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint ${{ inputs.git-repository || github.repository }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download source
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ inputs.git-repository }}
+          ref: ${{ inputs.git-ref }}
+
+      - name: Run Ameba Linter
+        uses: crystal-ameba/github-action@master
+        with:
+          config: ${{ inputs.config }}
+          version: ${{ inputs.version }}
+          min-severity: ${{ inputs.min-severity }}
+          only: ${{ inputs.only }}
+          except: ${{ inputs.except }}
