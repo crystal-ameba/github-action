@@ -2,10 +2,28 @@ name: Crystal Ameba Linter
 description: A GitHub Action that lints Crystal code with Ameba
 author: Vitalii Elenhaupt <velenhaupt@gmail.com>
 
-runs:
-  using: docker
-  image: Dockerfile
-
 branding:
   icon: code
   color: red
+
+inputs:
+  config:
+    description: Path to Ameba configuration file
+  version:
+    description: Version of Ameba rules to use
+  min-severity:
+    description: Minimum severity of issues to report
+
+runs:
+  using: docker
+  image: Dockerfile
+  entrypoint: /usr/bin/ameba
+  args:
+    - "--format"
+    - "github-actions"
+    - "--config"
+    - "${{ inputs.config }}"
+    - "--up-to-version"
+    - "${{ inputs.version }}"
+    - "--min-severity"
+    - "${{ inputs.min-severity }}"
