@@ -40,7 +40,7 @@ jobs:
 
     steps:
       - name: Download source
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: ${{ inputs.git-repository }}
           ref: ${{ inputs.git-ref }}
