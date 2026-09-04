@@ -1,4 +1,4 @@
-FROM ghcr.io/crystal-ameba/ameba:latest
+FROM ghcr.io/crystal-ameba/ameba:master
 
 LABEL maintainer="Sijawusz Pur Rahnama <sija@sija.pl>"
 LABEL com.github.actions.name="Ameba checks"
