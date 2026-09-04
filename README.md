@@ -8,7 +8,7 @@ linter.
 ## Inputs
 
 > [!WARNING]
-> Available only for the `master` branch.
+> Available only for versions 1.0.0+ and the `master` branch.
 
 | Input name     | Description                                  | Required? | Default value  |
 |----------------|----------------------------------------------|-----------|----------------|
@@ -24,7 +24,7 @@ To use Crystal Ameba Linter, add the following step to your GitHub action workfl
 
 ```diff
 +      - name: Run Ameba Linter
-+        uses: crystal-ameba/github-action@master
++        uses: crystal-ameba/github-action@v1
 ```
 
 ### Example Workflow
@@ -45,17 +45,17 @@ jobs:
 
     steps:
       - name: Download source
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Run Ameba Linter
-        uses: crystal-ameba/github-action@master
+        uses: crystal-ameba/github-action@v1
 ```
 
 ## Compatibility Versions
 
 | Ameba version | GitHub Action version |
 |--------------|------------------------|
-| master       | master                 |
+| latest       | 1.0.0                  |
 | ~> 1.6.4     | 0.12.0                 |
 | ~> 1.6.3     | 0.11.0                 |
 | ~> 1.6.2     | 0.10.0                 |
