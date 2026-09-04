@@ -55,6 +55,7 @@ jobs:
 
 | Ameba version | GitHub Action version |
 |--------------|------------------------|
+| master       | master                 |
 | latest       | 1.0.0                  |
 | ~> 1.6.4     | 0.12.0                 |
 | ~> 1.6.3     | 0.11.0                 |
