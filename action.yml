@@ -1,6 +1,6 @@
 name: Crystal Ameba Linter
 description: A GitHub Action that lints Crystal code with Ameba
-author: Vitalii Elenhaupt <velenhaupt@gmail.com>
+author: Sijawusz Pur Rahnama <sija@sija.pl>
 
 branding:
   icon: code
