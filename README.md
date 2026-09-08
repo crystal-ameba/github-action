@@ -10,13 +10,14 @@ linter.
 > [!WARNING]
 > Available only for versions 1.0.0+ and the `master` branch.
 
-| Input name     | Description                                  | Required? | Default value  |
-|----------------|----------------------------------------------|-----------|----------------|
-| `config`       | Path to the configuration file               | ✗         | —              |
-| `version`      | Version of Ameba ruleset to check against    | ✗         | —              |
-| `min-severity` | Minimum severity of issues to report         | ✗         | `convention`   |
-| `only`         | Run only given rules (or groups)             | ✗         | —              |
-| `except`       | Disable the given rules (or groups)          | ✗         | —              |
+| Input name     | Description                                  | Required? | Default value    |
+|----------------|----------------------------------------------|-----------|------------------|
+| `config`       | Path to the configuration file               | ✗         | —                |
+| `version`      | Version of Ameba ruleset to check against    | ✗         | —                |
+| `min-severity` | Minimum severity of issues to report         | ✗         | `convention`     |
+| `only`         | Run only given rules (or groups)             | ✗         | —                |
+| `except`       | Disable the given rules (or groups)          | ✗         | —                |
+| `formatter`    | Formatter to use                             | ✗         | `github-actions` |
 
 ## Usage
 

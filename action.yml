@@ -17,6 +17,9 @@ inputs:
     description: Run only given rules (or groups)
   except:
     description: Disable the given rules (or groups)
+  formatter:
+    description: Name of the formatter to use
+    default: github-actions
 
 runs:
   using: docker
@@ -24,7 +27,7 @@ runs:
   entrypoint: /usr/bin/ameba
   args:
     - "--format"
-    - "github-actions"
+    - "${{ inputs.formatter }}"
     - "--config"
     - "${{ inputs.config }}"
     - "--up-to-version"

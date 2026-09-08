@@ -29,6 +29,10 @@ on:
       except:
         description: Disable the given rules (or groups)
         type: string
+      formatter:
+        description: Name of the formatter to use
+        type: string
+        default: github-actions
 
 permissions:
   contents: read
@@ -53,3 +57,4 @@ jobs:
           min-severity: ${{ inputs.min-severity }}
           only: ${{ inputs.only }}
           except: ${{ inputs.except }}
+          formatter: ${{ inputs.formatter }}
